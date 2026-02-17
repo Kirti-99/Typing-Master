@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Master</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <center>
+    <h1>Typing Master</h1>
+    <h4>Difficulty level</h4>
+    <select id="Difficulty" onchange="generateRandomText()">
+        <option value="">Select Difficulty level</option>
+        <option value="1">easy</option>
+        <option value="2">Intermediate</option>
+        <option value="3">Advanced</option>
+        <option value="4">Set Custom</option>
+    </select><br><br>
+    <div id="custom" style="display: none;">
+        <label>Enter Word Count</label>
+        <input type="text" id="numberValue" oninput="onlyDigits()"/>
+        <input type="button" value="Submit" onclick="generateWords()">
+    </div><br>
+    <div id="originalText"></div><br>
+    <textarea rows="6" cols="100" id="autoText" readonly></textarea><br>
+    <div class="sound_mute">
+    <input type="checkbox" id="soundCheck"/>Mute Keyboard Sound <br>
+    <audio src="img/audio.mp3.mpeg" id="sound"></audio></div>
+<br>
+    <div id="typeText" contenteditable="true" oninput="timer(); StartingTime(); correctWords()" onkeydown="soundPlay()" disabled></div>
+    <!-- <textarea rows="10" cols="100" id="typeText" onkeyup="correctWords()" onclick="timer()" onkeydown="soundPlay()" oninput="StartingTime()" disabled></textarea><br> -->
+    <span id="timer">
+    <span id="min">05</span>&nbsp;&nbsp;:&nbsp;&nbsp;
+    <span id="sec">00</span></span><br>
+    <div id="btns">
+    <button type="button" id="pause" onclick="pause()" disabled>Pause Timer</button>
+    <button type="reset" id="resatbtn" onclick="reset()" disabled>Reset Timer</button>
+    </div>
+    <button type="submit" id="submitbtn" onclick="endingTime()" disabled>Submit</button><br><br><br>
+    <div id="TestValues">
+        <label>Correct Characters:- </label>&nbsp;&nbsp;&nbsp;<label> Incorrect Characters :- </label>
+        &nbsp;&nbsp;&nbsp;<label> Skipped Characters :- </label><br>
+        <input type="text" id="CC" readonly>&nbsp;&nbsp;&nbsp;
+        <input type="text" id="ICC" readonly>&nbsp;&nbsp;&nbsp;
+        <input type="text" id="SC" readonly><br>
+        <label>Correct Words:- </label>&nbsp;&nbsp;&nbsp;<label> Incorrect Words :- </label>
+        &nbsp;&nbsp;&nbsp;<label> Skipped Words :- </label><br>
+        <input type="text" id="CW" readonly>&nbsp;&nbsp;&nbsp;
+        <input type="text" id="ICW" readonly>&nbsp;&nbsp;&nbsp;
+        <input type="text" id="SW" readonly><br>
+        <label>Total Accuracy (Based on characters) :- </label>
+        &nbsp;&nbsp;&nbsp;<label> Words Per Minute :- </label><br>
+        <input type="text" id="TABOC" readonly>&nbsp;&nbsp;&nbsp;
+        <input type="text" id="WPM" readonly>
+    </div>
+    </center>
+    <script src="JS/script.js"></script>
+</body>
+</html>
